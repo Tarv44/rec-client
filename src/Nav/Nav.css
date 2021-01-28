@@ -4,6 +4,7 @@ nav {
     justify-content: space-between;
     font-size: 24px;
     padding: .4em 0;
+    width: 100%;
 }
 
 .nav-logo {

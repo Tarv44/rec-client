@@ -1,0 +1,41 @@
+.landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 2%;
+}
+
+.landing-title {
+    text-transform: uppercase;
+}
+
+.landing > * {
+    min-height: 29vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section:nth-child(even) {
+    background-color: lightgrey;
+}
+
+section:nth-child(odd) {
+    background-color: gray;
+}
+
+section {
+    padding: 5%;
+}
+
+.signup-button {
+    margin-right: 10px;
+}
+
+.account-buttons {
+    text-align: center;
+}

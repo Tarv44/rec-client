@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import ValidationError from '../ValidationError';
-import { users } from '../dummy-store';
+import store from '../dummy-store';
 import { NavLink } from 'react-router-dom';
 import RotationContext from '../RotationContext';
 import './Signup.css';
@@ -68,7 +68,7 @@ export default class Signup extends Component {
 
     validateUsername() {
         const username = this.state.username.value.trim();
-        const existingUsernames = users.map(user => {return user.username.toUpperCase()})
+        const existingUsernames = store.users.map(user => {return user.username.toUpperCase()})
         if (username.length === 0) {
           return 'Username is required';
         } else if (username.length < 3) {
@@ -111,7 +111,7 @@ export default class Signup extends Component {
 
         //This function will eventually update database. For now, it just updates App state.
 
-        this.context.updateUser(this.state.username.value)
+        this.context.updateUser(this.state.username.value, 99)
         this.setState({
             username: {
                 value: '',
@@ -130,7 +130,7 @@ export default class Signup extends Component {
                 touched: false
             }
         })
-        this.props.history.push('/')
+        this.props.history.push('/dashboard')
     }
 
     render () {

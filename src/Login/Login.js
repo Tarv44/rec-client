@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import ValidationError from '../ValidationError'
-import { users } from '../dummy-store'
+import store from '../dummy-store'
 import RotationContext from '../RotationContext'
 import './Login.css'
 
@@ -53,7 +53,7 @@ export default class Login extends Component {
         const password = this.state.password.value.trim()
         //This function will eventually make a GET request to database to verify account.
         //For now, it verifies account in dummy store and responds accordingly
-        const userIdx = users.findIndex(user => user.username.toLowerCase() == username)
+        const userIdx = store.users.findIndex(user => user.username.toLowerCase() === username)
         if (userIdx === -1) {
             this.setState({
                 loginFail: {
@@ -62,7 +62,7 @@ export default class Login extends Component {
                 }
             })
         } else {
-            if (password !== users[userIdx].password) {
+            if (password !== store.users[userIdx].password) {
                 this.setState({
                     loginFail: {
                         message: 'Incorrect password.',
@@ -70,7 +70,8 @@ export default class Login extends Component {
                     }
                 })
             } else {
-                this.context.updateUser(this.state.username.value)
+                const userId = store.users[userIdx].id
+                this.context.updateUser(this.state.username.value, userId)
                 this.setState({
                     loginFail: {
                         message: '',
@@ -85,16 +86,16 @@ export default class Login extends Component {
                         touched: false
                     }
                 })
-                this.props.history.push('/')
+                this.props.history.push('/dashboard')
             }
         }
     }
 
     render() {
         return (
-            <form onSubmit={e => this.handleLoginSubmit(e)}>
+            <form className='login-form' onSubmit={e => this.handleLoginSubmit(e)}>
                 <h2>Login</h2>
-                {this.state.loginFail && <p>{this.state.loginFail.message}</p>}
+                {this.state.loginFail && <p className='error'>{this.state.loginFail.message}</p>}
                 <div className='form-group'>
                     <label htmlFor='username'>Username:</label>
                     <input type='text' name='username' id='username' onChange={e => this.updateUsername(e.target.value)}/>
