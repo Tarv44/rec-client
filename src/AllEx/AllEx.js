@@ -11,12 +11,12 @@ export default function AllEx(props) {
             </li>
         ) 
     })
+
+    const exDisplay = props.exchanges.length > 0 ? <ul>{exLis}</ul> : <h5>No exchanges to display.</h5>
     return (
         <section>
             <h2>All Exchanges</h2>
-            <ul>
-                {exLis}
-            </ul>
+            {exDisplay}
         </section>
     )
 }

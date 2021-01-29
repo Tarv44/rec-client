@@ -43,7 +43,7 @@ export default class Login extends Component {
     validatePassword() {
         const password = this.state.password.value.trim()
         if (password.length === 0) {
-            return 'Username is required'
+            return 'Password is required'
         } 
     }
 
@@ -93,21 +93,23 @@ export default class Login extends Component {
 
     render() {
         return (
-            <form className='login-form' onSubmit={e => this.handleLoginSubmit(e)}>
-                <h2>Login</h2>
-                {this.state.loginFail && <p className='error'>{this.state.loginFail.message}</p>}
-                <div className='form-group'>
-                    <label htmlFor='username'>Username:</label>
-                    <input type='text' name='username' id='username' onChange={e => this.updateUsername(e.target.value)}/>
-                    {this.state.username.touched && <ValidationError message={this.validateUsername()}/>}
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='password'>Password:</label>
-                    <input type='password' name='password' id='password' onChange={e => this.updatePassword(e.target.value)}/>
-                    {this.state.password.touched && <ValidationError message={this.validatePassword()}/>}
-                </div>
-                <button type='submit'>Login</button>
-            </form>
+            <main>
+                <form className='login-form' onSubmit={e => this.handleLoginSubmit(e)}>
+                    <h2>Login</h2>
+                    <div className='form-group'>
+                        <label htmlFor='username'>Username:</label>
+                        <input type='text' name='username' id='username' onChange={e => this.updateUsername(e.target.value)}/>
+                        {this.state.username.touched && <ValidationError message={this.validateUsername()}/>}
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor='password'>Password:</label>
+                        <input type='password' name='password' id='password' onChange={e => this.updatePassword(e.target.value)}/>
+                        {this.state.password.touched && <ValidationError message={this.validatePassword()}/>}
+                    </div>
+                    <button type='submit'>Login</button>
+                    {this.state.loginFail && <p className='error'>{this.state.loginFail.message}</p>}
+                </form>
+            </main>
         )
     }
 }

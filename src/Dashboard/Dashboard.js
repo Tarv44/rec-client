@@ -11,12 +11,12 @@ export default class Dashboard extends Component {
         return (
             <main>
                 <header>
-                    <h1>{this.context.user.username}</h1>
+                    <h1>{this.context.current_user.username}</h1>
                 </header>
 
-                <RecentEx exchanges={this.context.exchanges}/>
+                <RecentEx exchanges={this.context.current_exchanges}/>
 
-                <AllEx exchanges={this.context.exchanges}/>
+                <AllEx exchanges={this.context.current_exchanges}/>
             </main>
         )
     }

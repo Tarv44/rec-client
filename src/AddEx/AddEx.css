@@ -1,0 +1,28 @@
+.exchange-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.exchange-form > * {
+    margin-bottom: 10px;
+}
+
+.exchange-form-group {
+    flex-direction: column;
+    text-align: left;
+}
+
+.exchange-form-group input {
+    display: block;
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+}
+
+#title {
+    min-width: 200px;
+}

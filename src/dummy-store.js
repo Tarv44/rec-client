@@ -2,13 +2,13 @@ const STORE = {
     users: [
         {
             id: 1,
-            username: 'tarv44',
+            username: 'user',
             email: 'jonahdevine@gmail.com',
-            password: 'test123'
+            password: '1234'
         },
         {
             id: 2,
-            username: 'rajahDawg',
+            username: 'rajDawg',
             email: 'sleepyLife@gmail.com',
             password: 'Bones4Days'
         },

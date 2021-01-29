@@ -111,7 +111,7 @@ export default class Signup extends Component {
 
         //This function will eventually update database. For now, it just updates App state.
 
-        this.context.updateUser(this.state.username.value, 99)
+        this.context.updateUser(this.state.username.value, 99, this.state.email.value, this.state.password.value)
         this.setState({
             username: {
                 value: '',
@@ -135,31 +135,33 @@ export default class Signup extends Component {
 
     render () {
         return (
-            <form className='signup-form' onSubmit={e => this.handleSignupSubmit(e)}>
-                <h2>Signup</h2>
-                <div className='form-group'>
-                    <label htmlFor='username'>Username:</label>
-                    <input type='text' name='username' id='username' onChange={e => this.updateUsername(e.target.value)}/>
-                    {this.state.username.touched && <ValidationError message={this.validateUsername()}/>}
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='email'>Email:</label>
-                    <input type='text' name='email' id='email' onChange={e => this.updateEmail(e.target.value)}/>
-                    {this.state.email.touched && <ValidationError message={this.validateEmail()}/>}
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='password'>Password:</label>
-                    <input type='password' name='password' id='password' onChange={e => this.updatePassword(e.target.value)}/>
-                    {this.state.password.touched && <ValidationError message={this.validatePassword()}/>}
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='confirmPassword'>Confirm Password:</label>
-                    <input type='password' name='confirmPassword' id='confirmPassword' onChange={e => this.updateConfirmPassword(e.target.value)}/>
-                    {this.state.confirmPassword.touched && <ValidationError message={this.validateConfirmPassword()}/>}
-                </div>
-                <button type='submit'>Signup</button>
-                <NavLink to={'/login'}>Already have an account? Login here.</NavLink>
-            </form>
+            <main>
+                <form className='signup-form' onSubmit={e => this.handleSignupSubmit(e)}>
+                    <h2>Signup</h2>
+                    <div className='form-group'>
+                        <label htmlFor='username'>Username:</label>
+                        <input type='text' name='username' id='username' onChange={e => this.updateUsername(e.target.value)}/>
+                        {this.state.username.touched && <ValidationError message={this.validateUsername()}/>}
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor='email'>Email:</label>
+                        <input type='text' name='email' id='email' onChange={e => this.updateEmail(e.target.value)}/>
+                        {this.state.email.touched && <ValidationError message={this.validateEmail()}/>}
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor='password'>Password:</label>
+                        <input type='password' name='password' id='password' onChange={e => this.updatePassword(e.target.value)}/>
+                        {this.state.password.touched && <ValidationError message={this.validatePassword()}/>}
+                    </div>
+                    <div className='form-group'>
+                        <label htmlFor='confirmPassword'>Confirm Password:</label>
+                        <input type='password' name='confirmPassword' id='confirmPassword' onChange={e => this.updateConfirmPassword(e.target.value)}/>
+                        {this.state.confirmPassword.touched && <ValidationError message={this.validateConfirmPassword()}/>}
+                    </div>
+                    <button type='submit'>Signup</button>
+                    <NavLink to={'/login'}>Already have an account? Login here.</NavLink>
+                </form>
+            </main>
         )
     }
 }

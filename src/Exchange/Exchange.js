@@ -1,9 +1,11 @@
 import { Component } from 'react';
-import store from '../dummy-store';
 import Song from '../Song/Song';
+import RotationContext from '../RotationContext';
 import './Exchange.css';
 
 export default class Exchange extends Component {
+    static contextType = RotationContext
+
     constructor(props) {
         super(props)
         this.state = {
@@ -16,6 +18,7 @@ export default class Exchange extends Component {
     }
 
     componentDidMount() {
+        const store = this.context
         const exchange = store.exchanges.find(ex => ex.id === this.state.id)
         const created_by = store.users.find(user => user.id === exchange.created_by).username
         const songs = store.songs.filter(song => song.exchange_id === this.state.id)
@@ -39,8 +42,8 @@ export default class Exchange extends Component {
     }
 
     render() {
-        const songs = this.state.songs.map(song => {
-            return <Song song={song}/>
+        const songs = this.state.songs.map((song, i) => {
+            return <Song song={song} key={i}/>
         })
         return (
             <main>
