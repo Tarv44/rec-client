@@ -2,3 +2,8 @@
     font-style: italic;
     font-size: 12px;
 }
+
+.all-exchanges {
+    min-height: 60vh;
+    margin-bottom: 5px;
+}

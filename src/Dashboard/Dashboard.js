@@ -9,7 +9,7 @@ export default class Dashboard extends Component {
     
     render() {
         return (
-            <main>
+            <main className='dashboard'>
                 <header>
                     <h1>{this.context.current_user.username}</h1>
                 </header>

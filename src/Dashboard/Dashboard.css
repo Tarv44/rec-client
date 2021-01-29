@@ -1,0 +1,12 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    margin: 0 2%;
+    padding: 0 5%;
+    min-height: 90vh;
+}
+ .dashboard section {
+     width: 100%;
+ }
