@@ -37,21 +37,21 @@ const STORE = {
         {
             id: 3,
             date_created: new Date(),
-            created_by: 2,
+            created_by: 1,
             title: 'Bark bark woof',
             description: ''
         },
         {
             id: 4,
             date_created: new Date(),
-            created_by: 3,
+            created_by: 1,
             title: "My influences",
             description: ''
         },
         {
             id: 5,
             date_created: new Date(),
-            created_by: 3,
+            created_by: 1,
             title: 'Wedding songs',
             description: ''
         }
