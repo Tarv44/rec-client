@@ -1,6 +1,5 @@
 import {Component} from 'react';
 import ValidationError from '../ValidationError';
-import store from '../dummy-store';
 import { NavLink } from 'react-router-dom';
 import RotationContext from '../RotationContext';
 import config from '../config';
