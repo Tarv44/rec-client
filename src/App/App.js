@@ -20,8 +20,7 @@ class App extends Component {
       current_user: {
         username: ""
       },
-      current_exchanges: [],
-      users: []
+      current_exchanges: []
     }
   }
 
@@ -62,36 +61,11 @@ class App extends Component {
       id: exchange.id,
       title: exchange.title
     }
-    const {current_exchanges, exchanges} = this.state
+    const {current_exchanges} = this.state
 
     current_exchanges.push(newExchange)
-    exchanges.push(newExchange)
 
-    this.setState( { current_exchanges, exchanges } )
-  }
-
-  componentDidMount() {
-    const options = {
-      'method': 'GET',
-      'headers': {
-        'content-type': 'application/json'
-      }
-    }
-
-    fetch(`${config.API_ENDPOINT}/users/`, options)
-      .then(res => {
-        if (!res.ok) {
-          return res.json().then(err => { throw err })
-        }
-        return res.json()
-      })
-      .then(users => {
-        console.log(users)
-        this.setState({
-          users
-        })
-      })
-      .catch(err => console.log(err))
+    this.setState( { current_exchanges } )
   }
 
 
@@ -99,7 +73,6 @@ class App extends Component {
     const contextValue = {
       current_user: this.state.current_user,
       current_exchanges: this.state.current_exchanges,
-      users: this.state.users,
       updateUser: this.updateUser,
       addExchange: this.updateExchanges,
     }

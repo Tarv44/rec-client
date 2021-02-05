@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import AddSong from '../AddSong/AddSong';
 import RotationContext from '../RotationContext';
-import './AddEx.css'
+import config from '../config';
+import './AddEx.css';
 
 export default class AddEx extends Component {
     static contextType = RotationContext
@@ -80,17 +81,36 @@ export default class AddEx extends Component {
     handleSubmit(e) {
         e.preventDefault()
         console.log('submitted')
-        const exchangeId = this.context.exchanges.map(ex => ex.id).reduce((a,b) => Math.max(a,b)) + 1
         const exchange = {
-            id: exchangeId,
             title: this.state.title,
             created_by: this.context.current_user.id,
             date_created: new Date(),
             description: this.state.description,
-            newSongs: this.state.newSongs
+            songs: this.state.newSongs
         }
-        this.context.addExchange(exchange)
-        this.props.history.push(`/exchange/${exchangeId}`)
+
+        const options = {
+            'method': 'POST',
+            'headers': {
+                'content-type': 'application/json',
+            },
+            'body': JSON.stringify(exchange)
+        }
+
+        fetch(`${config.API_ENDPOINT}/exchanges/`, options)
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(err => { throw err })
+                }
+                return res.json()
+            })
+            .then(ex => {
+                this.context.addExchange(ex)
+                this.props.history.push(`/exchange/${ex.id}`)
+            })
+            .catch(err => console.log(err))
+        
+        
     }
 
     render() {

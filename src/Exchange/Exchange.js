@@ -15,7 +15,8 @@ export default class Exchange extends Component {
             title: '',
             date_created: '',
             created_by: '',
-            songs: []
+            songs: [],
+            users: []
         }
     }
 
@@ -26,6 +27,20 @@ export default class Exchange extends Component {
                 'content-type': 'application/json'
             }
         }
+
+        fetch(`${config.API_ENDPOINT}/users/`, options)
+            .then(res => {
+                if (!res.ok) {
+                return res.json().then(err => { throw err })
+                }
+                return res.json()
+            })
+            .then(users => {
+                this.setState({
+                    users
+                })
+            })
+            .catch(err => console.log(err))
 
         fetch(`${config.API_ENDPOINT}/exchanges/${this.state.id}`, options)
             .then(res => {
@@ -49,10 +64,10 @@ export default class Exchange extends Component {
 
     render() {
         const songs = this.state.songs.map((song, i) => {
-            return <Song song={song} key={i}/>
+            return <Song users={this.state.users} song={song} key={i}/>
         })
 
-        const username = this.state.created_by ? this.context.users.find(user => user.id == this.state.created_by).username : ''
+        const username = this.state.created_by ? this.state.users.find(user => user.id == this.state.created_by).username : ''
         return (
             <main>
                 <header>
