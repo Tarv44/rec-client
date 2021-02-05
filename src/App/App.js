@@ -10,7 +10,8 @@ import RotationContext from '../RotationContext';
 import Dashboard from '../Dashboard/Dashboard';
 import AddEx from '../AddEx/AddEx';
 import Exchange from '../Exchange/Exchange';
-import store from '../dummy-store';
+import config from '../config';
+import moment from 'moment';
 
 class App extends Component {
   constructor(props) {
@@ -20,67 +21,37 @@ class App extends Component {
         username: ""
       },
       current_exchanges: [],
-      //Following values only for static use
-      users: store.users,
-      exchanges: store.exchanges,
-      songs: store.songs,
-      comments: store.comments
+      users: []
     }
   }
 
-  updateUser = (username, userId, email, password) => {
-    const current_exchanges = store.exchanges.filter(ex => ex.created_by === userId)
-    this.setState({
-      current_user: {
-        username,
-        id: userId
-      },
-      current_exchanges
-    })
+  updateUser = (username, userId) => {
+    const options = {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }
 
-    //Following conditional for static use only
-    if(this.state.users.indexOf(u => u.id === userId) === -1) {
-      this.setState({
-        users: [
-          ...this.state.users,
-          {
-            id: userId,
-            username,
-            email,
-            password
-          }
-        ]
+    fetch(`${config.API_ENDPOINT}/users/${userId}/exchanges`, options)
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(err => { throw err })
+        }
+        return res.json()
       })
-    }
-  }
-
-  staticUpdate(newSongs, exId) {
-    //Function for updating songs and comments in static mode only
-    let songId = this.state.songs.map(song => song.id).reduce((a,b) => Math.max(a,b)) + 1
-    let commId = this.state.comments.map(comm => comm.id).reduce((a,b) => Math.max(a,b)) + 1
-    const songs = this.state.songs
-    const comments = this.state.comments
-    for (let i = 0; i < newSongs.length; i++) {
-      const song = {
-        album: newSongs[i].album,
-        artist: newSongs[i].artist,
-        title: newSongs[i].title,
-        exchange_id: exId,
-        id: songId
-      }
-      const comm = {
-        message: newSongs[i].comment,
-        id: commId,
-        created_by: this.state.current_user.id,
-        song_id: songId
-      }
-      songs.push(song)
-      comments.push(comm)
-      songId++
-      commId++
-    }
-
-    this.setState( { songs, comments } )
+      .then(current_exchanges => {
+        this.setState({
+          current_user: {
+            username,
+            id: userId
+          },
+          current_exchanges
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   updateExchanges = exchange => {
@@ -97,9 +68,30 @@ class App extends Component {
     exchanges.push(newExchange)
 
     this.setState( { current_exchanges, exchanges } )
+  }
 
-    //Following line is for only for static use, adjust above as well.
-    this.staticUpdate(exchange.newSongs, exchange.id)
+  componentDidMount() {
+    const options = {
+      'method': 'GET',
+      'headers': {
+        'content-type': 'application/json'
+      }
+    }
+
+    fetch(`${config.API_ENDPOINT}/users/`, options)
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(err => { throw err })
+        }
+        return res.json()
+      })
+      .then(users => {
+        console.log(users)
+        this.setState({
+          users
+        })
+      })
+      .catch(err => console.log(err))
   }
 
 
@@ -107,13 +99,9 @@ class App extends Component {
     const contextValue = {
       current_user: this.state.current_user,
       current_exchanges: this.state.current_exchanges,
+      users: this.state.users,
       updateUser: this.updateUser,
       addExchange: this.updateExchanges,
-      //Following values only for static use
-      users: this.state.users,
-      exchanges: this.state.exchanges,
-      songs: this.state.songs,
-      comments: this.state.comments
     }
 
     return (

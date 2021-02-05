@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import moment from 'moment'
 import './AllEx.css'
 
 export default function AllEx(props) {
@@ -6,7 +7,7 @@ export default function AllEx(props) {
         return (
             <li key={ex.id}>
                 <NavLink to={`/exchange/${ex.id}`}>
-                    {ex.title} <span className='date-created'>{ex.date_created.toLocaleDateString()}</span>
+                    {ex.title} <span className='date-created'>{moment(ex.date_created).format('l')}</span>
                 </NavLink>
             </li>
         ) 

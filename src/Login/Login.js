@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import ValidationError from '../ValidationError'
-import store from '../dummy-store'
 import RotationContext from '../RotationContext'
+import config from '../config'
 import './Login.css'
 
 export default class Login extends Component {
@@ -10,11 +10,11 @@ export default class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            loginFail: {
+            error: {
                 message: '',
                 failed: false
             },
-            username: {
+            email: {
                 value: '',
                 touched: false
             },
@@ -25,18 +25,18 @@ export default class Login extends Component {
         }
     }
 
-    updateUsername(username) {
-        this.setState({ username: { value: username, touched: true } })
+    updateEmail(email) {
+        this.setState({ email: { value: email, touched: true } })
     }
 
     updatePassword(password) {
         this.setState({ password: { value: password, touched: true } })
     }
 
-    validateUsername() {
-        const username = this.state.username.value.trim()
-        if (username.length === 0) {
-            return 'Username is required'
+    validateEmail() {
+        const email = this.state.email.value.trim()
+        if (email.length === 0) {
+            return 'Email is required'
         } 
     }
 
@@ -47,37 +47,38 @@ export default class Login extends Component {
         } 
     }
 
-    handleLoginSubmit(e) {
+    handleLoginSubmit = e => {
         e.preventDefault()
-        const username = this.state.username.value.trim().toLowerCase()
+        const email = this.state.email.value.trim()
         const password = this.state.password.value.trim()
-        //This function will eventually make a GET request to database to verify account.
-        //For now, it verifies account in dummy store and responds accordingly
-        const userIdx = store.users.findIndex(user => user.username.toLowerCase() === username)
-        if (userIdx === -1) {
-            this.setState({
-                loginFail: {
-                    failed: true,
-                    message: 'Username not found.'
+
+        const login = { email, password }
+
+        const headers = {
+            'content-type': 'application/json'
+        }
+
+        const options = {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(login),
+        }
+
+        fetch(`${config.API_ENDPOINT}/users/login`, options)
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(err => { throw err })
                 }
+                return res.json()
             })
-        } else {
-            if (password !== store.users[userIdx].password) {
+            .then(user => {
+                this.context.updateUser(user.username, user.id)
                 this.setState({
-                    loginFail: {
-                        message: 'Incorrect password.',
-                        failed: true
-                    }
-                })
-            } else {
-                const userId = store.users[userIdx].id
-                this.context.updateUser(this.state.username.value, userId)
-                this.setState({
-                    loginFail: {
+                    error: {
                         message: '',
                         failed: false
                     },
-                    username: {
+                    email: {
                         value: '',
                         touched: false
                     },
@@ -87,8 +88,15 @@ export default class Login extends Component {
                     }
                 })
                 this.props.history.push('/dashboard')
-            }
-        }
+            })
+            .catch(err => {
+                this.setState({
+                    error: {
+                        message: err.error.message,
+                        failed: true
+                    }
+                })
+            })
     }
 
     render() {
@@ -97,9 +105,9 @@ export default class Login extends Component {
                 <form className='login-form' onSubmit={e => this.handleLoginSubmit(e)}>
                     <h2>Login</h2>
                     <div className='form-group'>
-                        <label htmlFor='username'>Username:</label>
-                        <input type='text' name='username' id='username' onChange={e => this.updateUsername(e.target.value)}/>
-                        {this.state.username.touched && <ValidationError message={this.validateUsername()}/>}
+                        <label htmlFor='email'>Email:</label>
+                        <input type='text' name='email' id='email' onChange={e => this.updateEmail(e.target.value)}/>
+                        {this.state.email.touched && <ValidationError message={this.validateEmail()}/>}
                     </div>
                     <div className='form-group'>
                         <label htmlFor='password'>Password:</label>
@@ -107,7 +115,7 @@ export default class Login extends Component {
                         {this.state.password.touched && <ValidationError message={this.validatePassword()}/>}
                     </div>
                     <button type='submit'>Login</button>
-                    {this.state.loginFail && <p className='error'>{this.state.loginFail.message}</p>}
+                    {this.state.error.failed && <p className='error'>{this.state.error.message}</p>}
                 </form>
             </main>
         )

@@ -3,6 +3,7 @@ import ValidationError from '../ValidationError';
 import store from '../dummy-store';
 import { NavLink } from 'react-router-dom';
 import RotationContext from '../RotationContext';
+import config from '../config';
 import './Signup.css';
 
 export default class Signup extends Component {
@@ -24,6 +25,10 @@ export default class Signup extends Component {
             confirmPassword: {
                 value: '',
                 touched: false
+            },
+            error: {
+                message: '',
+                failed: false
             }
         }
     }
@@ -73,9 +78,7 @@ export default class Signup extends Component {
           return 'Username is required';
         } else if (username.length < 3) {
           return 'Username must be at least 3 characters long';
-        } else if (existingUsernames.indexOf(username.toUpperCase()) !== -1) {
-            return 'Username already exists'
-        }
+        } 
     }
 
     validateEmail() {
@@ -106,31 +109,75 @@ export default class Signup extends Component {
         }
     }
 
+    disableSubmit() {
+        if (
+            this.validateConfirmPassword()
+            || this.validateUsername()
+            || this.validateEmail()
+            || this.validatePassword()
+        ) {
+            return true
+        } else {
+            return false
+        }
+    }
+
     handleSignupSubmit(e) {
         e.preventDefault()
 
-        //This function will eventually update database. For now, it just updates App state.
+        const headers = {
+            'content-type': 'application/json'
+        }
 
-        this.context.updateUser(this.state.username.value, 99, this.state.email.value, this.state.password.value)
-        this.setState({
-            username: {
-                value: '',
-                touched: false
-            },
-            email: {
-                value: '',
-                touched: false
-            },
-            password: {
-                value: '',
-                touched: false
-            },
-            confirmPassword: {
-                value: '',
-                touched: false
-            }
-        })
-        this.props.history.push('/dashboard')
+        const body = {
+            email: this.state.email.value,
+            username: this.state.username.value,
+            password: this.state.password.value,
+        }
+
+        const options = {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(body)
+        }
+
+        fetch(`${config.API_ENDPOINT}/users/`, options)
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(err => { throw err })
+                }
+                return res.json()
+            })
+            .then(user => {
+                this.context.updateUser( user.username, user.id ) 
+                this.setState({
+                    username: {
+                        value: '',
+                        touched: false
+                    },
+                    email: {
+                        value: '',
+                        touched: false
+                    },
+                    password: {
+                        value: '',
+                        touched: false
+                    },
+                    confirmPassword: {
+                        value: '',
+                        touched: false
+                    }
+                })
+                this.props.history.push('/dashboard')
+            })
+            .catch(err => {
+                this.setState({
+                    error: {
+                        message: err.error.message,
+                        failed: true
+                    }
+                })
+            })
     }
 
     render () {
@@ -138,6 +185,7 @@ export default class Signup extends Component {
             <main>
                 <form className='signup-form' onSubmit={e => this.handleSignupSubmit(e)}>
                     <h2>Signup</h2>
+                    {this.state.error.failed && <p className='error'>{this.state.error.message}</p>}
                     <div className='form-group'>
                         <label htmlFor='username'>Username:</label>
                         <input type='text' name='username' id='username' onChange={e => this.updateUsername(e.target.value)}/>
@@ -158,7 +206,7 @@ export default class Signup extends Component {
                         <input type='password' name='confirmPassword' id='confirmPassword' onChange={e => this.updateConfirmPassword(e.target.value)}/>
                         {this.state.confirmPassword.touched && <ValidationError message={this.validateConfirmPassword()}/>}
                     </div>
-                    <button type='submit'>Signup</button>
+                    <button disabled={this.disableSubmit()} type='submit'>Signup</button>
                     <NavLink to={'/login'}>Already have an account? Login here.</NavLink>
                 </form>
             </main>
