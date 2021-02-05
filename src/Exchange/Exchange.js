@@ -62,12 +62,61 @@ export default class Exchange extends Component {
             .catch(err => console.log(err))
     }
 
+    updateComment = (comment, songIdx) => {
+        const songs = this.state.songs
+        songs[songIdx].new_comment = comment
+        this.setState({ songs })
+    }
+
+    handleCommentSubmit = (e, songIdx) => {
+        e.preventDefault()
+
+        const newComment = {
+            message: this.state.songs[songIdx].new_comment,
+            song_id: this.state.songs[songIdx].id,
+            created_by: this.context.current_user.id
+        }
+        console.log(newComment)
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newComment)
+        }
+
+        fetch(`${config.API_ENDPOINT}/comments/`, options)
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(err => { throw err })
+                }
+                return res.json()
+            })
+            .then(comment => {
+                const songs = this.state.songs
+                songs[songIdx].comments.push(comment)
+                songs[songIdx].new_comment = ''
+                this.setState({ songs })
+            })
+            .catch(err => console.log(err))
+    }
+
     render() {
         const songs = this.state.songs.map((song, i) => {
-            return <Song users={this.state.users} song={song} key={i}/>
+            return (
+                <Song 
+                    users={this.state.users} 
+                    song={song} 
+                    index={i} 
+                    key={i}
+                    handleComment={this.updateComment}
+                    handleCommentSubmit={this.handleCommentSubmit}
+                />
+            ) 
         })
 
-        const username = this.state.created_by ? this.state.users.find(user => user.id == this.state.created_by).username : ''
+        const username = this.state.created_by ? this.state.users.find(user => user.id === this.state.created_by).username : ''
         return (
             <main>
                 <header>

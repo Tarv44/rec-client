@@ -73,7 +73,6 @@ export default class Signup extends Component {
 
     validateUsername() {
         const username = this.state.username.value.trim();
-        const existingUsernames = store.users.map(user => {return user.username.toUpperCase()})
         if (username.length === 0) {
           return 'Username is required';
         } else if (username.length < 3) {

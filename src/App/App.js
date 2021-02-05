@@ -11,7 +11,6 @@ import Dashboard from '../Dashboard/Dashboard';
 import AddEx from '../AddEx/AddEx';
 import Exchange from '../Exchange/Exchange';
 import config from '../config';
-import moment from 'moment';
 
 class App extends Component {
   constructor(props) {
