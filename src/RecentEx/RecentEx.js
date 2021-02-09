@@ -5,9 +5,9 @@ function compare(a,b) {
     const dateB = b.date_created
 
     if (dateB > dateA) {
-        return -1
-    } else if (dateB < dateA) {
         return 1
+    } else if (dateB < dateA) {
+        return -1
     }
 }
 
