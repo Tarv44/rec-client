@@ -17,6 +17,7 @@ export default class AddEx extends Component {
                     title: '',
                     artist: '',
                     album: '',
+                    url_link: '',
                     comment: ''
                 }
             ]
@@ -55,6 +56,12 @@ export default class AddEx extends Component {
         this.setState( { newSongs } )
     }
 
+    updateLink = (link, index) => {
+        const newSongs = this.state.newSongs
+        newSongs[index].link = link
+        this.setState( { newSongs } )
+    }
+
     addSong(e) {
         e.preventDefault()
         this.setState({
@@ -64,6 +71,7 @@ export default class AddEx extends Component {
                     title: '',
                     artist: '',
                     album: '',
+                    url_link: '',
                     comment: '' 
                 }
             ]
@@ -84,7 +92,6 @@ export default class AddEx extends Component {
         const exchange = {
             title: this.state.title,
             created_by: this.context.current_user.id,
-            date_created: new Date(),
             description: this.state.description,
             songs: this.state.newSongs
         }
@@ -125,16 +132,15 @@ export default class AddEx extends Component {
                         handleTitle={this.updateSongTitle}
                         handleArtist={this.updateArtist}
                         handleAlbum={this.updateAlbum}
-                        handleComment={this.updateComment}
-                        // handleDelete={this.deleteSong}
+                        handleLink={this.updateLink}
                     />
                     <div className='exchange-form-group'>
-                        <label htmlFor={`comment-${this.props.index}`}>Thoughts</label>
+                        <label htmlFor={`comment-${i}`}>Thoughts</label>
                         <textarea
                             className='comment' 
                             name='song-title' 
-                            id={`comment-${this.props.index}`}
-                            onChange={e => this.props.handleComment(e.target.value, this.props.index)}
+                            id={`comment-${i}`}
+                            onChange={e => this.updateComment(e.target.value, i)}
                         />
                     </div>
                 </fieldset>
