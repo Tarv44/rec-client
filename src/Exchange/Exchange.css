@@ -2,3 +2,22 @@ header {
     display: flex;
     flex-direction: column;
 }
+
+#exchange-header {
+    border-bottom: solid black 3px;
+}
+
+#exchange-header *{
+    border-bottom: #0CF0AB solid 3px;
+}
+
+#exchange-title {
+    font-size: 30px;
+}
+
+#add-song-btn {
+    padding: 2em 0;
+    letter-spacing: .3em;
+    font-weight: bold;
+    color: black;
+}

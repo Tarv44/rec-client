@@ -14,24 +14,6 @@
     min-height: 29vh;
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-section:nth-child(even) {
-    background-color: lightgrey;
-}
-
-section:nth-child(odd) {
-    background-color: gray;
-}
-
-section {
-    padding: 5%;
-}
-
 .signup-button {
     margin-right: 10px;
 }

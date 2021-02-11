@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import AddSong from '../AddSong/AddSong';
+import NewSong from '../NewSong/NewSong';
 import RotationContext from '../RotationContext';
 import config from '../config';
 import './AddEx.css';
@@ -116,17 +116,28 @@ export default class AddEx extends Component {
     render() {
         const newSongs = this.state.newSongs.map((song, i) => {
             return (
-                <AddSong 
-                    key={i}
-                    index={i} 
-                    newSong={song}
-                    handleTitle={this.updateSongTitle}
-                    handleArtist={this.updateArtist}
-                    handleAlbum={this.updateAlbum}
-                    handleComment={this.updateComment}
-                    // handleDelete={this.deleteSong}
-                />
-                
+                <fieldset>
+                    <legend>Song</legend>
+                    <NewSong 
+                        key={i}
+                        index={i} 
+                        newSong={song}
+                        handleTitle={this.updateSongTitle}
+                        handleArtist={this.updateArtist}
+                        handleAlbum={this.updateAlbum}
+                        handleComment={this.updateComment}
+                        // handleDelete={this.deleteSong}
+                    />
+                    <div className='exchange-form-group'>
+                        <label htmlFor={`comment-${this.props.index}`}>Thoughts</label>
+                        <textarea
+                            className='comment' 
+                            name='song-title' 
+                            id={`comment-${this.props.index}`}
+                            onChange={e => this.props.handleComment(e.target.value, this.props.index)}
+                        />
+                    </div>
+                </fieldset>
             )
         })
         return (

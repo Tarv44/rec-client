@@ -3,9 +3,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    bottom: 0;
     width: 100%;
-    background-color: grey;
+    background-color: #5C18F0;
     color: white;
-    height: 5vh;
 }

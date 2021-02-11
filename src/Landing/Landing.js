@@ -18,8 +18,8 @@ export default class Landing extends Component {
                         roommate or dog. 
                     </p>
                     <p>
-                        Rotation was created as a tool to help with deeper music conversation between acquaintances far and wide, 
-                        that goes beyond the basic link to a streaming platform.
+                        Rotation was created as a tool for deeper music conversation between acquaintances far and wide, 
+                        that goes beyond texting a basic link to a streaming platform.
                     </p>
                 </section>
 

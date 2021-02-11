@@ -1,0 +1,16 @@
+.song-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-input {
+    min-width: 70%;
+    border: none;
+    background-color: #808080;
+    color: white;
+    border-radius: 4px;
+}
+
+.comment-button {
+    min-width: 20%;
+}

@@ -17,7 +17,8 @@ class App extends Component {
     super(props)
     this.state = {
       current_user: {
-        username: ""
+        username: "",
+        id: null
       },
       current_exchanges: []
     }
@@ -50,6 +51,10 @@ class App extends Component {
       .catch(err => {
         console.log(err)
       })
+  }
+
+  componentDidMount() {
+    this.updateUser('user', 1)
   }
 
   updateExchanges = exchange => {

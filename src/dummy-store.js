@@ -23,7 +23,7 @@ const STORE = {
         {
             id: 1,
             date_created: new Date(),
-            created_by: 1,
+            created_by: 2,
             title: 'The Roots',
             description: '',
         },
