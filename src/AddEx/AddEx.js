@@ -148,7 +148,7 @@ export default class AddEx extends Component {
         })
         return (
             <main>
-                <form className='exchange-form' onSubmit={e => this.handleSubmit(e)}>
+                <form autoComplete="off" className='exchange-form' onSubmit={e => this.handleSubmit(e)}>
                     <h2>New Exchange</h2>
                     <div className='exchange-form-group'>
                         <label htmlFor='add-ex-title'>Title</label>
