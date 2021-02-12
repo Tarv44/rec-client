@@ -122,10 +122,9 @@ export default class AddEx extends Component {
     render() {
         const newSongs = this.state.newSongs.map((song, i) => {
             return (
-                <fieldset className="add-ex-song">
+                <fieldset key={i} className="add-ex-song">
                     <legend>Song</legend>
                     <NewSong 
-                        key={i}
                         index={i} 
                         newSong={song}
                         handleTitle={this.updateSongTitle}

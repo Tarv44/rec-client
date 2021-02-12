@@ -214,7 +214,7 @@ export default class Exchange extends Component {
         })
 
         const AddSong = this.state.new_song 
-        ? <form onSubmit={e => this.handleSongSubmit(e)}>
+        ? <form id="ex-add-song" autoComplete='off'  onSubmit={e => this.handleSongSubmit(e)}>
             <NewSong 
                 index={1}
                 handleTitle={this.updateTitle}
@@ -222,7 +222,7 @@ export default class Exchange extends Component {
                 handleArtist={this.updateArtist}
                 handleAlbum={this.updateAlbum}
             />
-            <button>Add To Exchange</button>
+            <button id="ex-submit-song-btn" type='submit'>Add To Exchange</button>
         </form>
         : <button id="ex-add-song-btn" onClick={e => this.addSongForm(e)}>Add Song</button> 
 
