@@ -225,7 +225,7 @@ export default class Exchange extends Component {
             />
             <button>Add To Exchange</button>
         </form>
-        : <button id="add-song-btn" onClick={e => this.addSongForm(e)}>Add Song</button> 
+        : <button id="ex-add-song-btn" onClick={e => this.addSongForm(e)}>Add Song</button> 
 
         const username = this.state.created_by ? this.state.users.find(user => user.id === this.state.created_by).username : ''
         return (

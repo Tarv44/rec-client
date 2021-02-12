@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import ValidationError from '../ValidationError'
 import RotationContext from '../RotationContext'
+import {NavLink} from 'react-router-dom'
 import config from '../config'
 import './Login.css'
 
@@ -101,21 +102,23 @@ export default class Login extends Component {
 
     render() {
         return (
-            <main>
-                <form className='login-form' onSubmit={e => this.handleLoginSubmit(e)}>
+            <main className="signup-login">
+                <form autoComplete='off' className='login-form' onSubmit={e => this.handleLoginSubmit(e)}>
                     <h2>Login</h2>
                     <div className='form-group'>
-                        <label htmlFor='email'>Email:</label>
+                        <label htmlFor='email'>Email</label>
                         <input type='text' name='email' id='email' onChange={e => this.updateEmail(e.target.value)}/>
                         {this.state.email.touched && <ValidationError message={this.validateEmail()}/>}
                     </div>
                     <div className='form-group'>
-                        <label htmlFor='password'>Password:</label>
+                        <label htmlFor='password'>Password</label>
                         <input type='password' name='password' id='password' onChange={e => this.updatePassword(e.target.value)}/>
                         {this.state.password.touched && <ValidationError message={this.validatePassword()}/>}
                     </div>
                     <button type='submit'>Login</button>
                     {this.state.error.failed && <p className='error'>{this.state.error.message}</p>}
+                    <p>Don't have an account?</p>
+                    <NavLink className="login-here" to={'/signup'}>Signup here.</NavLink>
                 </form>
             </main>
         )

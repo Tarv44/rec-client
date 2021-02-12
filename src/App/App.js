@@ -64,10 +64,6 @@ class App extends Component {
       })
   }
 
-  componentDidMount() {
-    this.updateUser('user', 1)
-  }
-
   render() {
     const contextValue = {
       current_user: this.state.current_user,

@@ -123,7 +123,7 @@ export default class AddEx extends Component {
     render() {
         const newSongs = this.state.newSongs.map((song, i) => {
             return (
-                <fieldset>
+                <fieldset className="add-ex-song">
                     <legend>Song</legend>
                     <NewSong 
                         key={i}
@@ -151,16 +151,16 @@ export default class AddEx extends Component {
                 <form className='exchange-form' onSubmit={e => this.handleSubmit(e)}>
                     <h2>New Exchange</h2>
                     <div className='exchange-form-group'>
-                        <label htmlFor='title'>Title</label>
-                        <input type='text' name='title' id='title' onChange={e => this.updateTitle(e.target.value)}/>
+                        <label htmlFor='add-ex-title'>Title</label>
+                        <input type='text' name='title' id='add-ex-title' onChange={e => this.updateTitle(e.target.value)}/>
                     </div>
                     <div className='exchange-form-group'>
                         <label htmlFor='descr'>Description</label>
                         <textarea name='descr' id='descr'placeholder='Describe the topic...' onChange={e => this.updateDescr(e.target.value)}/>   
                     </div>
                     {newSongs}
-                    <button id='add-song-btn' onClick={e => this.addSong(e)}>Add Another Song</button>
-                    <button type='submit'>Create Exchange</button>
+                    <button id='add-ex-add-song-btn' onClick={e => this.addSong(e)}>Add Another Song</button>
+                    <button id='create-ex-btn' type='submit'>Create Exchange</button>
                 </form>
             </main>
         )

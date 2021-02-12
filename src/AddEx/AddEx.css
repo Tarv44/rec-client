@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 5%;
 }
 
 .exchange-form > * {
@@ -11,16 +12,30 @@
 .exchange-form-group {
     flex-direction: column;
     text-align: left;
+    width: 100%;
+    padding: 2%;
 }
 
-.exchange-form-group input {
-    display: block;
-    width: 100%;
+#add-ex-title {
+    font-size: 24px;
 }
 
-textarea {
+#add-ex-add-song-btn {
+    padding: .5em 1.5em;
+    font-size: 16px;
+}
+
+#create-ex-btn {
+    padding: .5em 1.5em;
+    font-size: 20px;
+    margin-top: 1em;
+    background-color: #5C18F0;
+    color: white;
+}
+
+.add-ex-song {
     width: 100%;
-    height: 100px;
+    margin: 5%;
 }
 
 #title {

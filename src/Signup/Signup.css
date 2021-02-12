@@ -3,38 +3,8 @@
     flex-direction: column;
     align-items: center;
     padding: 0;
-    margin: auto;
 }
 
-.signup-form h2 {
-    align-self: center;
-}
-
-.signup-form > * {
-    margin-bottom: 10px;
-}
-
-.signup-form > *:last-child {
-    margin-bottom: 0;
-}
-
-.signup-form button {
-    width: 60%;
-    margin-top: 10px;
-}
-
-.form-group {
-    width: 100%;
-    text-align: right;
-    
-}
-
-.form-group input {
-    width: 50%;
-    margin-left: 5px;
-}
-
-.error {
-    text-align: center;
-    color: red;
+.login-here {
+    text-decoration: underline #0CF0AB;
 }

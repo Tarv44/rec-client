@@ -6,9 +6,10 @@
 .comment-input {
     min-width: 70%;
     border: none;
-    background-color: #808080;
+    background-color: #acacac;
     color: white;
     border-radius: 4px;
+    font-size: 16px;
 }
 
 .comment-button {

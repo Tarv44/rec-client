@@ -6,14 +6,14 @@ export default class Landing extends Component {
     render() {
         return (
             <main className='landing'>
-                <header>
-                    <h1 className='landing-title'>Rotation</h1>
+                <header className="landing-header">
+                    <h1 className='landing-title'>Rotatio<span id="last-letter">n</span></h1>
                 </header>
 
                 <section className="welcome-section">
                     <h2>Welcome!</h2>
                     <p>
-                        Whether you're a musician, a history buff, or just an excited fan, it's a pleasure to share the
+                        Whether you're a musician, a record head, or just an excited fan, it's a pleasure to share the
                         music you care about with those around you. These days, "those around you" is likely just your 
                         roommate or dog. 
                     </p>

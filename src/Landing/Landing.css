@@ -6,8 +6,28 @@
     margin: 0 2%;
 }
 
+.landing-header {
+    width: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 40%), 
+                      url('../img/keyboard-headphones.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    height: 100%;
+    background-size: 110%;
+}
+
+
+
 .landing-title {
     text-transform: uppercase;
+    color: #5C18F0;
+    text-decoration: underline #F0E118;
+    letter-spacing: .5em;
+    text-align: center;
+}
+#last-letter {
+    letter-spacing: 0;
 }
 
 .welcome-section {
