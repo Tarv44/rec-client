@@ -156,7 +156,7 @@ export default class AddEx extends Component {
                     </div>
                     <div className='exchange-form-group'>
                         <label htmlFor='descr'>Description</label>
-                        <textarea name='descr' id='descr'placeholder='Describe the topic...' onChange={e => this.updateDescr(e.target.value)}/>   
+                        <textarea name='descr' id='descr' onChange={e => this.updateDescr(e.target.value)}/>   
                     </div>
                     {newSongs}
                     <button id='add-ex-add-song-btn' onClick={e => this.addSong(e)}>Add Another Song</button>
