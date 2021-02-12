@@ -5,7 +5,8 @@ header {
 
 #exchange-header {
     border-bottom: solid black 3px;
-    color: #454545
+    color: #454545;
+    padding: 5% 0;
 }
 
 #exchange-header *{
@@ -14,6 +15,7 @@ header {
 
 #exchange-title {
     font-size: 30px;
+    margin-top: 0;
 }
 
 #ex-add-song-btn {

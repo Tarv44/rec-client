@@ -199,6 +199,10 @@ export default class Exchange extends Component {
             .catch(err => console.log(err))
     }
 
+    copyLink = () => {
+        navigator.clipboard.writeText(`https://rotationexchange.com/exchange/${this.state.id}`)
+    }
+
     render() {
         const songs = this.state.songs.map((song, i) => {
             return (
@@ -232,6 +236,7 @@ export default class Exchange extends Component {
                 <header id="exchange-header">
                     <h2 id="exchange-title">{this.state.title}</h2>
                     <h5>Created by {username} on {moment(this.state.date_created).format('l')}</h5>
+                    <button onClick={() =>  this.copyLink()} id="copy-btn">Copy Link to Clipboard</button>
                 </header>
                 {songs}
                 {AddSong}
