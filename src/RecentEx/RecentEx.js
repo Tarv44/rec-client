@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom'
+import './RecentEx.css'
 
 function compare(a,b) {
-    const dateA = a.date_created
-    const dateB = b.date_created
+    const dateA = a.modified
+    const dateB = b.modified
 
     if (dateB > dateA) {
         return 1
@@ -21,9 +22,8 @@ export default function RecentEx(props) {
     const recentDisplay = props.exchanges.length > 0 ? <ul>{recentLis}</ul> : <h5>No recent exchanges.</h5>
 
     return (
-        <section>
-            <NavLink to={'/add-exchange'}><button>Create New Exchange</button></NavLink>
-            <h2>Recent Exchanges</h2>
+        <section className='dashboard-section recent'>
+            <h2>Recently Updated</h2>
             {recentDisplay}
         </section>
     )

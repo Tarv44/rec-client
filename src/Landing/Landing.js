@@ -10,7 +10,7 @@ export default class Landing extends Component {
                     <h1 className='landing-title'>Rotation</h1>
                 </header>
 
-                <section>
+                <section className="welcome-section">
                     <h2>Welcome!</h2>
                     <p>
                         Whether you're a musician, a history buff, or just an excited fan, it's a pleasure to share the
@@ -23,7 +23,7 @@ export default class Landing extends Component {
                     </p>
                 </section>
 
-                <section>
+                <section className="get-started">
                     <h2>Get Started</h2>
                     <p>Create an account or login to start a new exchange.</p>
                     <div className='account-buttons'>

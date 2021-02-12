@@ -5,6 +5,7 @@ header {
 
 #exchange-header {
     border-bottom: solid black 3px;
+    color: #454545
 }
 
 #exchange-header *{

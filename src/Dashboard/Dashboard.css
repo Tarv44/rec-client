@@ -1,0 +1,36 @@
+.dashboard-header {
+    margin-bottom: 20px;
+}
+
+.dashboard-section {
+    background-color: #454545;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-section h2 {
+    color:  white;
+    display: inline-block;
+    border-bottom: solid #F0E118 .5px;
+    padding: .2em 0;
+    width: auto;
+    align-self: center;
+    margin: 0;
+}
+
+.dashboard-section a {
+    color: white;
+    text-decoration: underline #0CF0AB;
+}
+
+.dashboard-section li {
+    margin: .5em 0;
+    font-size: 20px;
+}
+
+
+
+.dashboard-title {
+    color: #454545;
+    border-bottom: solid 3px #0CF0AB;
+}

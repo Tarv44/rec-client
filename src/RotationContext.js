@@ -2,7 +2,7 @@ import React from 'react';
 
 const RotationContext = React.createContext({
     updateUser: () => {},
-    addExchange: () => {}
+    updateExchanges: () => {}
 })
 
 export default RotationContext;

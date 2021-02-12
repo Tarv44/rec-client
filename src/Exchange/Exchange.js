@@ -53,12 +53,16 @@ export default class Exchange extends Component {
             })
             .then(exchange => {
                 const { id, title, date_created, created_by, songs } = exchange
+                const songsWithComm = songs.map(song => {
+                    song.new_comment = ''
+                    return song
+                })
                 this.setState({
                     id,
                     title,
                     date_created,
                     created_by,
-                    songs
+                    songs: songsWithComm
                 })
             })
             .catch(err => console.log(err))
@@ -76,7 +80,8 @@ export default class Exchange extends Component {
         const newComment = {
             message: this.state.songs[songIdx].new_comment,
             song_id: this.state.songs[songIdx].id,
-            created_by: this.context.current_user.id
+            created_by: this.context.current_user.id,
+            exchange_id: this.state.id
         }
         console.log(newComment)
 
@@ -100,6 +105,7 @@ export default class Exchange extends Component {
                 songs[songIdx].comments.push(comment)
                 songs[songIdx].new_comment = ''
                 this.setState({ songs })
+                this.context.updateExchanges()
             })
             .catch(err => console.log(err))
     }
@@ -189,6 +195,7 @@ export default class Exchange extends Component {
                         song
                     ]
                 })
+                this.context.updateExchanges()
             })
             .catch(err => console.log(err))
     }

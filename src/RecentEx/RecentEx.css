@@ -1,0 +1,9 @@
+.recent li {
+    margin: .5em 0;
+    font-size: 20px;
+}
+
+.recent {
+    align-items: flex-start;
+    border-bottom: solid #F0E118 3px;
+}

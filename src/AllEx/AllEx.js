@@ -7,15 +7,16 @@ export default function AllEx(props) {
         return (
             <li key={ex.id}>
                 <NavLink to={`/exchange/${ex.id}`}>
-                    {ex.title} <span className='date-created'>{moment(ex.date_created).format('l')}</span>
+                    {ex.title}
                 </NavLink>
+                <p className='date-created'>{moment(ex.date_created).format('l')}</p>   
             </li>
         ) 
     })
 
     const exDisplay = props.exchanges.length > 0 ? <ul>{exLis}</ul> : <h5>No exchanges to display.</h5>
     return (
-        <section className='all-exchanges'>
+        <section className='all-exchanges dashboard-section'>
             <h2>All Exchanges</h2>
             {exDisplay}
         </section>

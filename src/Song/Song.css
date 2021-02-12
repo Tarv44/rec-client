@@ -12,26 +12,35 @@
 .song-added,
 .song-link {
     margin: 2px 0 0 0;
-    font-size: 12px;
+    
     font-style: italic;
     font-weight: normal;
     text-align: right;
 }
 
+.song-added {
+    font-size: 12px;
+}
+
 .song-link {
     text-decoration: #0CF0AB underline;
+    font-size: 13px;
+}
+
+.song-div {
+    margin: 0 5%;
+    padding: 2% 0;
 }
 
 .song-header {
     text-align: right;
     min-width: 60%;
-    margin: 5%;
-    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .song-details {
-    margin: 5%;
-    margin-top: 0;
+    border-bottom: solid black 1px;
+    padding-top: 0;
 }
 
 .song-details > * {
@@ -39,15 +48,10 @@
     margin-top: 0;
 }
 
-.song-comments {
-    margin: 5%;
-    margin-top: 0;
-}
-
 .song-comments > p {
     background-color: white;
     color: #454545;
-    display: inline-block;
+    display: block;
 }
 
 .song-comments * {

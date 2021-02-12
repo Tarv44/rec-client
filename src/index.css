@@ -33,18 +33,18 @@ section {
   padding: 5%;
 }
 
-section:nth-child(even) {
+/* section:nth-child(even) {
   background-color: #F0E118;
 }
 
 section:nth-child(odd) {
   background-color: #454545;
   color: white
-}
+} 
 
 section:nth-child(odd) a {
   color: white
-}
+} */
 
 button {
   background-color: #0CF0AB;

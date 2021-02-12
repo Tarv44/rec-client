@@ -1,8 +1,15 @@
 .date-created {
     font-style: italic;
     font-size: 12px;
+    color: #acacac;
+    margin: 0;
 }
 
 .all-exchanges {
     min-height: 50vh;
+    align-items: flex-end;
+}
+
+.all-exchanges li {
+    text-align: right;
 }

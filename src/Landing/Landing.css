@@ -10,9 +10,38 @@
     text-transform: uppercase;
 }
 
+.welcome-section {
+    border: #0CF0AB solid 3px;
+    padding: 5%;
+    margin: 3%;
+}
+
+.welcome-section h2 {
+    border-bottom: solid #0CF0AB 1px;
+    color: #454545;
+}
+
+
+
 .landing > * {
     min-height: 29vh;
 }
+
+.get-started {
+    background-color: #454545;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+}
+
+.get-started h2 {
+    border-bottom: #F0E118 solid 1px;
+    margin: 0;
+}
+
+
 
 .signup-button {
     margin-right: 10px;

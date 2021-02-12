@@ -21,22 +21,23 @@ export default class Song extends Component {
                 handleComment={this.props.handleComment} 
                 handleCommentSubmit={this.props.handleCommentSubmit} 
                 songIdx={this.props.index}
+                inputValue={this.props.song.new_comment}
             />
             : <p>Log in to leave a comment</p>
         return (
             <div className='song-section'>
-                <div className="song-header">
+                <div className="song-header song-div">
                     <h3 className='song-title'>{song.title}</h3>
                     <h4 className='song-added'>{moment(song.date_added).format('l')} - <span className='username'>{added_by}</span></h4>
                     {song.url_link ? <a href={song.url_link} target='_blank' rel="noreferrer" className='song-link'>Track Link</a> : null}
                 </div>
                 
-                <div className='song-details'>
+                <div className='song-details song-div'>
                     <p><b>Artist:</b> {song.artist}</p>
                     {song.album ? <p><b>Album:</b> {song.album}</p> : null}
                 </div>
                 
-                <div className='song-comments'>
+                <div className='song-comments song-div'>
                     {comments}
                     {newComment}
                 </div>

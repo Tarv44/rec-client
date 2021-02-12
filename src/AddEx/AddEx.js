@@ -112,7 +112,7 @@ export default class AddEx extends Component {
                 return res.json()
             })
             .then(ex => {
-                this.context.addExchange(ex)
+                this.context.updateExchanges()
                 this.props.history.push(`/exchange/${ex.id}`)
             })
             .catch(err => console.log(err))
