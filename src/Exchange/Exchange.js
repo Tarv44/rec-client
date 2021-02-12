@@ -41,31 +41,32 @@ export default class Exchange extends Component {
                 this.setState({
                     users
                 })
+                fetch(`${config.API_ENDPOINT}/exchanges/${this.state.id}`, options)
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(err => { throw err })
+                        }
+                        return res.json()
+                    })
+                    .then(exchange => {
+                        const { id, title, date_created, created_by, songs } = exchange
+                        const songsWithComm = songs.map(song => {
+                            song.new_comment = ''
+                            return song
+                        })
+                        this.setState({
+                            id,
+                            title,
+                            date_created,
+                            created_by,
+                            songs: songsWithComm
+                        })
+                    })
+                    .catch(err => console.log(err))
             })
             .catch(err => console.log(err))
 
-        fetch(`${config.API_ENDPOINT}/exchanges/${this.state.id}`, options)
-            .then(res => {
-                if (!res.ok) {
-                    return res.json().then(err => { throw err })
-                }
-                return res.json()
-            })
-            .then(exchange => {
-                const { id, title, date_created, created_by, songs } = exchange
-                const songsWithComm = songs.map(song => {
-                    song.new_comment = ''
-                    return song
-                })
-                this.setState({
-                    id,
-                    title,
-                    date_created,
-                    created_by,
-                    songs: songsWithComm
-                })
-            })
-            .catch(err => console.log(err))
+        
     }
 
     updateComment = (comment, songIdx) => {

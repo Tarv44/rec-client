@@ -58,7 +58,7 @@ export default class AddEx extends Component {
 
     updateLink = (link, index) => {
         const newSongs = this.state.newSongs
-        newSongs[index].link = link
+        newSongs[index].url_link = link
         this.setState( { newSongs } )
     }
 
@@ -102,6 +102,7 @@ export default class AddEx extends Component {
             },
             'body': JSON.stringify(exchange)
         }
+        console.log(exchange)
 
         fetch(`${config.API_ENDPOINT}/exchanges/`, options)
             .then(res => {

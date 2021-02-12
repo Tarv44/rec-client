@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import {NavLink} from 'react-router-dom'
 import RotationContext from '../RotationContext';
 import AddComment from '../AddComment/AddComment';
 import moment from 'moment';
@@ -23,7 +24,7 @@ export default class Song extends Component {
                 songIdx={this.props.index}
                 inputValue={this.props.song.new_comment}
             />
-            : <p>Log in to leave a comment</p>
+            : <NavLink to={'/login'}>Log in to leave a comment</NavLink>
         return (
             <div className='song-section'>
                 <div className="song-header song-div">
