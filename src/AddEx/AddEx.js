@@ -18,7 +18,7 @@ export default class AddEx extends Component {
                     artist: '',
                     album: '',
                     url_link: '',
-                    comment: ''
+                    message: ''
                 }
             ]
         }
@@ -50,9 +50,9 @@ export default class AddEx extends Component {
         this.setState( { newSongs } )
     }
 
-    updateComment = (comment, index) => {
+    updateComment = (message, index) => {
         const newSongs = this.state.newSongs
-        newSongs[index].comment = comment
+        newSongs[index].message = message
         this.setState( { newSongs } )
     }
 
@@ -72,7 +72,7 @@ export default class AddEx extends Component {
                     artist: '',
                     album: '',
                     url_link: '',
-                    comment: '' 
+                    message: '' 
                 }
             ]
         })
@@ -88,7 +88,6 @@ export default class AddEx extends Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        console.log('submitted')
         const exchange = {
             title: this.state.title,
             created_by: this.context.current_user.id,

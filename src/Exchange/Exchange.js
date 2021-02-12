@@ -83,14 +83,13 @@ export default class Exchange extends Component {
             created_by: this.context.current_user.id,
             exchange_id: this.state.id
         }
-        console.log(newComment)
 
         const options = {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
+            'method': 'POST',
+            'headers': {
+                'content-type': 'application/json',
             },
-            body: JSON.stringify(newComment)
+            'body': JSON.stringify(newComment)
         }
 
         fetch(`${config.API_ENDPOINT}/comments/`, options)
