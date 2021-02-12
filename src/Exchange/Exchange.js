@@ -66,7 +66,9 @@ export default class Exchange extends Component {
             })
             .catch(err => console.log(err))
 
-        
+            if (this.context.current_user.id === null) {
+                this.context.handleReturnPath(this.props.location.pathname)
+            }
     }
 
     updateComment = (comment, songIdx) => {

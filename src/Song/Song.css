@@ -12,7 +12,6 @@
 .song-added,
 .song-link {
     margin: 2px 0 0 0;
-    
     font-style: italic;
     font-weight: normal;
     text-align: right;
@@ -23,7 +22,7 @@
 }
 
 .song-link {
-    text-decoration: #0CF0AB underline;
+    color: #454545;
     font-size: 13px;
 }
 

@@ -16,12 +16,21 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      return_path: "",
       current_user: {
-        username: "",
-        id: null
+        id: null,
+        username: ""
       },
       current_exchanges: []
     }
+  }
+
+  setReturnPath = (path) => {
+    this.setState({ return_path: path })
+  }
+
+  clearRetunPath = () => {
+    this.setState({ return_path: "" })
   }
 
   getExchanges = (userId) => {
@@ -48,13 +57,13 @@ class App extends Component {
       })
   }
 
-  updateUser = (username, userId) => {
-    this.getExchanges(userId)
+  updateUser = (username, id) => {
+    this.getExchanges(id)
       .then(current_exchanges => {
         this.setState({
           current_user: {
             username,
-            id: userId
+            id
           },
           current_exchanges
         })
@@ -66,10 +75,13 @@ class App extends Component {
 
   render() {
     const contextValue = {
+      return_path: this.state.return_path,
       current_user: this.state.current_user,
       current_exchanges: this.state.current_exchanges,
       updateUser: this.updateUser,
-      updateExchanges: this.updateExchanges
+      updateExchanges: this.updateExchanges,
+      handleReturnPath: this.setReturnPath,
+      resetReturnPath: this.clearRetunPath
     }
 
     return (

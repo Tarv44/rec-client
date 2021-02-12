@@ -88,7 +88,12 @@ export default class Login extends Component {
                         touched: false
                     }
                 })
-                this.props.history.push('/dashboard')
+                if (this.context.return_path) {
+                    this.props.history.push(this.context.return_path)
+                    this.context.resetReturnPath()
+                } else {
+                    this.props.history.push('/dashboard')
+                } 
             })
             .catch(err => {
                 this.setState({

@@ -17,7 +17,7 @@ export default class Song extends Component {
             })
             : null
 
-        const newComment = this.context.current_user.username 
+        const newComment = this.context.current_user.id !== null
             ? <AddComment 
                 handleComment={this.props.handleComment} 
                 handleCommentSubmit={this.props.handleCommentSubmit} 
