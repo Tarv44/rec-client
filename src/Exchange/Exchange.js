@@ -3,6 +3,7 @@ import Song from '../Song/Song';
 import NewSong from '../NewSong/NewSong';
 import RotationContext from '../RotationContext';
 import config from '../config';
+import Loading from '../Loading/Loading';
 import moment from 'moment';
 import './Exchange.css';
 
@@ -14,6 +15,7 @@ export default class Exchange extends Component {
         this.state = {
             id: this.props.match.params.exId,
             title: '',
+            description: '',
             date_created: '',
             created_by: '',
             songs: [],
@@ -49,7 +51,7 @@ export default class Exchange extends Component {
                         return res.json()
                     })
                     .then(exchange => {
-                        const { id, title, date_created, created_by, songs } = exchange
+                        const { id, title, description, date_created, created_by, songs } = exchange
                         const songsWithComm = songs.map(song => {
                             song.new_comment = ''
                             return song
@@ -57,6 +59,7 @@ export default class Exchange extends Component {
                         this.setState({
                             id,
                             title,
+                            description,
                             date_created,
                             created_by,
                             songs: songsWithComm
@@ -191,11 +194,13 @@ export default class Exchange extends Component {
                 return res.json()
             })
             .then(song => {
+                song.comments = []
                 this.setState({
                     songs: [
                         ...this.state.songs,
                         song
-                    ]
+                    ],
+                    new_song: null
                 })
                 this.context.updateExchanges()
             })
@@ -224,6 +229,7 @@ export default class Exchange extends Component {
         ? <form id="ex-add-song" autoComplete='off'  onSubmit={e => this.handleSongSubmit(e)}>
             <NewSong 
                 index={1}
+                form_state={this.state.new_song}
                 handleTitle={this.updateTitle}
                 handleLink={this.updateLink}
                 handleArtist={this.updateArtist}
@@ -231,14 +237,22 @@ export default class Exchange extends Component {
             />
             <button id="ex-submit-song-btn" type='submit'>Add To Exchange</button>
         </form>
-        : <button id="ex-add-song-btn" onClick={e => this.addSongForm(e)}>Add Song</button> 
+        : <button 
+            disabled={this.context.current_user.id === null} 
+            id="ex-add-song-btn" 
+            onClick={e => this.addSongForm(e)}
+        >   
+            {this.context.current_user.id === null ? 'Log in to add song' : 'Add Song'}
+        </button> 
 
         const username = this.state.created_by ? this.state.users.find(user => user.id === this.state.created_by).username : ''
-        return (
+
+        return !this.state.title ? <Loading /> : (
             <main>
                 <header id="exchange-header">
                     <h2 id="exchange-title">{this.state.title}</h2>
                     <h5>Created by {username} on {moment(this.state.date_created).format('l')}</h5>
+                    <p id="ex-description">{this.state.description}</p>
                     <button onClick={() =>  this.copyLink()} id="copy-btn">Copy Link to Clipboard</button>
                 </header>
                 {songs}

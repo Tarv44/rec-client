@@ -6,7 +6,7 @@ header {
 #exchange-header {
     border-bottom: solid black 3px;
     color: #454545;
-    padding: 5% 0;
+    padding: 5% 3%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +18,12 @@ header {
 
 #exchange-title {
     font-size: 30px;
-    margin-top: 0;
+    margin: 0;
+    text-align: center;
+}
+
+#ex-description {
+    text-decoration: none;
     text-align: center;
 }
 

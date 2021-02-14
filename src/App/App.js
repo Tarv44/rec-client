@@ -10,6 +10,7 @@ import RotationContext from '../RotationContext';
 import Dashboard from '../Dashboard/Dashboard';
 import AddEx from '../AddEx/AddEx';
 import Exchange from '../Exchange/Exchange';
+import Loading from '../Loading/Loading';
 import config from '../config';
 
 class App extends Component {
@@ -95,6 +96,7 @@ class App extends Component {
             <Route exact path={'/add-exchange'} component={AddEx}/>
             <Route exact path={'/'} component={Landing}/>
             <Route exact path={'/exchange/:exId'} component={Exchange}/>
+            <Route exact path={'/loading'} component={Loading}/>
 
             <Footer />
           </div>

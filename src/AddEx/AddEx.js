@@ -102,7 +102,6 @@ export default class AddEx extends Component {
             },
             'body': JSON.stringify(exchange)
         }
-        console.log(exchange)
 
         fetch(`${config.API_ENDPOINT}/exchanges/`, options)
             .then(res => {
@@ -127,7 +126,7 @@ export default class AddEx extends Component {
                     <legend>Song</legend>
                     <NewSong 
                         index={i} 
-                        newSong={song}
+                        form_state={song}
                         handleTitle={this.updateSongTitle}
                         handleArtist={this.updateArtist}
                         handleAlbum={this.updateAlbum}
@@ -137,7 +136,8 @@ export default class AddEx extends Component {
                         <label htmlFor={`comment-${i}`}>Thoughts</label>
                         <textarea
                             className='comment' 
-                            name='song-title' 
+                            name='song-title'
+                            value={song.message} 
                             id={`comment-${i}`}
                             onChange={e => this.updateComment(e.target.value, i)}
                         />
@@ -147,7 +147,11 @@ export default class AddEx extends Component {
         })
         return (
             <main>
-                <form autoComplete="off" className='exchange-form' onSubmit={e => this.handleSubmit(e)}>
+                {this.context.current_user.id === null 
+                ? <div>
+                    <h2>Log in to create new exchange</h2>
+                </div>
+                : <form autoComplete="off" className='exchange-form' onSubmit={e => this.handleSubmit(e)}>
                     <h2>New Exchange</h2>
                     <div className='exchange-form-group'>
                         <label htmlFor='add-ex-title'>Title</label>
@@ -160,7 +164,7 @@ export default class AddEx extends Component {
                     {newSongs}
                     <button id='add-ex-add-song-btn' onClick={e => this.addSong(e)}>Add Another Song</button>
                     <button id='create-ex-btn' type='submit'>Create Exchange</button>
-                </form>
+                </form>}
             </main>
         )
     }
