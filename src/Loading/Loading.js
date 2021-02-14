@@ -33,7 +33,7 @@ export default class Loading extends Component {
     render() {
         return (
             <main id='loading-screen'>
-                <img id='loading-logo' src={logo}/>
+                <img id='loading-logo' src={logo} alt="Rotation logo"/>
                 <h3 id='loading-message'>{this.state.loading_msg}...</h3>
             </main>
         )
