@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import NewSong from '../NewSong/NewSong';
+import  Loading from '../Loading/Loading';
 import RotationContext from '../RotationContext';
 import config from '../config';
 import './AddEx.css';
@@ -10,6 +11,7 @@ export default class AddEx extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            exchange_submitted: false,
             title: '',
             description: '',
             newSongs: [
@@ -95,6 +97,8 @@ export default class AddEx extends Component {
             songs: this.state.newSongs
         }
 
+        this.setState({ exchange_submitted: true })
+
         const options = {
             'method': 'POST',
             'headers': {
@@ -145,7 +149,7 @@ export default class AddEx extends Component {
                 </fieldset>
             )
         })
-        return (
+        return this.state.exchange_submitted ? <Loading /> : (
             <main>
                 {this.context.current_user.id === null 
                 ? <div>
