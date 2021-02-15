@@ -253,7 +253,10 @@ export default class Exchange extends Component {
                     <h2 id="exchange-title">{this.state.title}</h2>
                     <h5>Created by {username} on {moment(this.state.date_created).format('l')}</h5>
                     <p id="ex-description">{this.state.description}</p>
-                    <button onClick={() =>  this.copyLink()} id="copy-btn">Copy Link to Clipboard</button>
+                    <p>
+                        Share this exchange with a friend!
+                        <button onClick={() =>  this.copyLink()} id="copy-btn">Copy Link to Clipboard</button>
+                    </p> 
                 </header>
                 {songs}
                 {AddSong}

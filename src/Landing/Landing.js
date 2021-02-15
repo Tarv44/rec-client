@@ -19,13 +19,17 @@ export default class Landing extends Component {
                     </p>
                     <p>
                         Rotation was created as a tool for deeper music conversation between acquaintances far and wide, 
-                        that goes beyond texting a basic link to a streaming platform.
+                        that goes beyond texting a basic link to a streaming platform. It allows you to create your own 
+                        chat room for the music you're listening to that you can share with your friends.
                     </p>
                 </section>
 
                 <section className="get-started">
                     <h2>Get Started</h2>
-                    <p>Create an account or login to start a new exchange.</p>
+                    <p>
+                        Create an account (or login) and make a new exchange to get started. Once you've made an exchange, 
+                        share the url for your new exchange with a friend to get them in on the convo.
+                    </p>
                     <div className='account-buttons'>
                         <NavLink to={'/signup'} className='signup-button'><button>Signup</button></NavLink>
                         <NavLink to={'/login'}><button>Login</button></NavLink>
