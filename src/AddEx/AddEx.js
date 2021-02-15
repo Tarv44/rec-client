@@ -141,6 +141,7 @@ export default class AddEx extends Component {
                         <textarea
                             className='comment' 
                             name='song-title'
+                            maxLength="1500"
                             value={song.message} 
                             id={`comment-${i}`}
                             onChange={e => this.updateComment(e.target.value, i)}

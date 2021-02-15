@@ -9,6 +9,7 @@ export default class AddComment extends Component {
                     type='text'
                     name='comment'
                     className='comment-input'
+                    maxLength="1500"
                     value={this.props.inputValue}
                     onChange={e => this.props.handleComment(e.target.value, this.props.songIdx)}
                 />
