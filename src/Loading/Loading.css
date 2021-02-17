@@ -8,7 +8,7 @@
 }
 
 #loading-logo {
-    width: 60%;
+    width: 225px;
     animation: spin 4s linear infinite;
     z-index: 1;
 }
@@ -23,5 +23,29 @@
     }
     to {
         transform:rotate(360deg);
+    }
+}
+
+@media (min-width: 768px) {
+    #loading-screen {
+        min-height: 91vh;
+    }
+
+    #loading-logo {
+        width: 345px;
+    }
+
+    #loading-message {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 1280px) {
+    #loading-screen {
+        min-height: 88vh;
+    }
+
+    #loading-logo {
+        width: 320px;
     }
 }
