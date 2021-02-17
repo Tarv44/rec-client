@@ -29,10 +29,6 @@ header {
   align-items: center;
 }
 
-section {
-  padding: 5%;
-}
-
 form h2 {
   color: #454545;
   text-decoration: #F0E118 underline;
@@ -68,23 +64,7 @@ textarea {
   margin-bottom: 1em;
 }
 
-.signup-form,
-.login-form {
-  margin: 0 15%;
-}
 
-.signup-login {
-  justify-content: center;
-}
-
-.signup-login h2 {
-  margin-bottom: .5em;
-}
-
-.signup-login button{
-  font-size: 1em;
-  padding: .5em 1.5em;
-}
 
 .error {
   text-align: center;

@@ -13,3 +13,9 @@
 .all-exchanges li {
     text-align: right;
 }
+
+@media (min-width: 768px) {
+    .date-created {
+        font-size: 14px;
+    }
+}

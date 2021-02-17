@@ -3,7 +3,7 @@ import ValidationError from '../ValidationError'
 import RotationContext from '../RotationContext'
 import {NavLink} from 'react-router-dom'
 import config from '../config'
-import './Login.css'
+import '../signup-login.css'
 
 export default class Login extends Component {
     static contextType = RotationContext

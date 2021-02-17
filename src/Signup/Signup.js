@@ -3,7 +3,7 @@ import ValidationError from '../ValidationError';
 import { NavLink } from 'react-router-dom';
 import RotationContext from '../RotationContext';
 import config from '../config';
-import './Signup.css';
+import '../signup-login.css';
 
 export default class Signup extends Component {
     constructor(props) {
