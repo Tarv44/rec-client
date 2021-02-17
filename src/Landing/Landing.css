@@ -70,3 +70,26 @@
 .account-buttons {
     text-align: center;
 }
+
+@media (min-width: 768px) {
+    .landing-header {
+        min-height: 35vh;
+    }
+}
+
+@media (min-width: 1280px) {
+    .landing-header {
+        min-height: 45vh;
+        background-position: center -180px;
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 74%), 
+                      url('../img/keyboard-headphones.jpg');
+    }
+
+    .welcome-section {
+        margin: 3% 10%;
+    }
+
+    .get-started {
+        padding: 0 15%;
+    }
+}
