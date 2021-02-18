@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import './NewSong.css'
 
 export default class NewSong extends Component {
     render() {

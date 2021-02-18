@@ -56,37 +56,6 @@ textarea {
   padding: .3em;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-
-
-.error {
-  text-align: center;
-  color: red;
-  margin-top: .2em;
-  margin-bottom: 0;
-  align-self: center;
-}
-
-/* section:nth-child(even) {
-  background-color: #F0E118;
-}
-
-section:nth-child(odd) {
-  background-color: #454545;
-  color: white
-} 
-
-section:nth-child(odd) a {
-  color: white
-} */
-
 button {
   background-color: #0CF0AB;
   border: none;

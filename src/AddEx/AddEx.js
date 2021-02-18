@@ -80,14 +80,6 @@ export default class AddEx extends Component {
         })
     }
 
-    // deleteSong = (e, index) => {
-    //     e.preventDefault()
-    //     const newSongs = this.state.newSongs
-    //     newSongs.splice(index, 1)
-    //     console.log(newSongs)
-    //     this.setState( { newSongs } )
-    // }
-
     handleSubmit(e) {
         e.preventDefault()
         const exchange = {
@@ -119,8 +111,6 @@ export default class AddEx extends Component {
                 this.props.history.push(`/exchange/${ex.id}`)
             })
             .catch(err => console.log(err))
-        
-        
     }
 
     render() {

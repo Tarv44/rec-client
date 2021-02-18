@@ -3,7 +3,7 @@
 exports[`----- Footer ----- renders the UI as expected 1`] = `
 <footer>
   <p>
-    © Jonah Tarver
+    © 2021 Jonah Tarver
   </p>
 </footer>
 `;

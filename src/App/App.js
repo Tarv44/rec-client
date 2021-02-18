@@ -96,7 +96,6 @@ class App extends Component {
             <Route exact path={'/add-exchange'} component={AddEx}/>
             <Route exact path={'/'} component={Landing}/>
             <Route exact path={'/exchange/:exId'} component={Exchange}/>
-            <Route exact path={'/loading'} component={Loading}/>
 
             <Footer />
           </div>

@@ -4,7 +4,7 @@ import './Footer.css'
 export default function Footer() {
     return (
         <footer>
-            <p>&copy; Jonah Tarver</p>
+            <p>&copy; 2021 Jonah Tarver</p>
         </footer>
     )
 }

@@ -5,7 +5,6 @@ export default function Nav(props) {
     const links = Boolean(props.username) 
         ? <div className='nav-links'>
             <NavLink to={'/dashboard'}>{props.username}</NavLink>
-            {/* <NavLink to={'/new-exchange'}>Create Exchange</NavLink> */}
         </div>
         : <div className='nav-links'>
             <NavLink to={'/signup'}>Signup</NavLink>
