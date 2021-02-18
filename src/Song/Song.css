@@ -62,3 +62,15 @@
     font-weight: bold;
     color: #4C00F0;
 }
+
+@media (min-width: 768px) {
+    .song-div {
+        margin: 0 8%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .song-div {
+        margin: 0 15%;
+    }
+}

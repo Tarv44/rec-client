@@ -4,7 +4,7 @@
 }
 
 .comment-input {
-    width: 70% !important;
+    width: 100% !important;
     border: none;
     background-color: #acacac;
     color: white;
@@ -13,5 +13,5 @@
 }
 
 .comment-button {
-    min-width: 20%;
+    box-sizing: content-box;
 }

@@ -46,3 +46,33 @@ header {
     padding: .5em 1.5em;
     font-size: 16px;
 }
+
+@media (min-width: 768px) {
+    #ex-add-song {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 3% 9%;
+    }
+
+    #ex-add-song > * {
+        flex: 2;
+        min-width: 50%;
+    }
+
+    #ex-add-song button {
+        max-width: 40%;
+        margin: auto;
+        padding: .5em 0;
+        margin-top: 1em;
+    }
+}
+
+@media (min-width: 1280px) {
+    #ex-add-song {
+        padding: 3% 15%;
+    }
+
+    #ex-add-song button {
+        padding: 1em 0;
+    }
+}

@@ -41,3 +41,45 @@
 #title {
     min-width: 200px;
 }
+
+@media (min-width: 768px) {
+    .exchange-form {
+        margin: 5% 8%;
+    }
+
+    .exchange-form label {
+        font-size: 18px;
+    }
+
+    .add-ex-song {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .add-ex-song > * {
+        flex: 2;
+    }
+
+    .add-ex-song .exchange-form-group {
+        min-width: 50%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .exchange-form {
+        margin: 5% 12%;
+    }
+
+    .add-ex-song {
+        margin: 3%
+    }
+
+    .exchange-form label {
+        font-size: 20px;
+    }
+
+    .exchange-form input,
+    .exchange-form textarea {
+        font-size: 18px;
+    }
+}
