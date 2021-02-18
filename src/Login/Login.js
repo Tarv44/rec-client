@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import ValidationError from '../ValidationError'
+import Loading from '../Loading/Loading'
 import RotationContext from '../RotationContext'
 import {NavLink} from 'react-router-dom'
 import config from '../config'
@@ -11,6 +12,7 @@ export default class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            login_submitted: false,
             error: {
                 message: '',
                 failed: false
@@ -50,6 +52,9 @@ export default class Login extends Component {
 
     handleLoginSubmit = e => {
         e.preventDefault()
+
+        this.setState({ login_submitted: true })
+
         const email = this.state.email.value.trim()
         const password = this.state.password.value.trim()
 
@@ -106,7 +111,7 @@ export default class Login extends Component {
     }
 
     render() {
-        return (
+        return this.state.login_submitted ? <Loading /> : (
             <main className="signup-login">
                 <form autoComplete='off' className='login-form' onSubmit={e => this.handleLoginSubmit(e)}>
                     <h2>Login</h2>

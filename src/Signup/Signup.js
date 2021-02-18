@@ -2,6 +2,7 @@ import {Component} from 'react';
 import ValidationError from '../ValidationError';
 import { NavLink } from 'react-router-dom';
 import RotationContext from '../RotationContext';
+import Loading from '../Loading/Loading';
 import config from '../config';
 import '../signup-login.css';
 
@@ -9,6 +10,7 @@ export default class Signup extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            signup_submitted: false,
             username: {
                 value: '',
                 touched: false
@@ -123,6 +125,8 @@ export default class Signup extends Component {
     handleSignupSubmit(e) {
         e.preventDefault()
 
+        this.setState({ signup_submitted: true })
+
         const headers = {
             'content-type': 'application/json'
         }
@@ -184,7 +188,7 @@ export default class Signup extends Component {
     }
 
     render () {
-        return (
+        return this.state.signup_submitted ? <Loading /> : (
             <main className="signup-login">
                 <form autoComplete='off' className='signup-form' onSubmit={e => this.handleSignupSubmit(e)}>
                     <h2>Signup</h2>
