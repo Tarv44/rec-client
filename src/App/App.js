@@ -10,7 +10,6 @@ import RotationContext from '../RotationContext';
 import Dashboard from '../Dashboard/Dashboard';
 import AddEx from '../AddEx/AddEx';
 import Exchange from '../Exchange/Exchange';
-import Loading from '../Loading/Loading';
 import config from '../config';
 
 class App extends Component {

@@ -1,4 +1,4 @@
-# Rotation API
+# Rotation Client
 
 ### Summary
 [Live Demo](https://rotationexchange.com/)
