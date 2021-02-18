@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- AllEx ----- renders the UI as expected 1`] = `
+<section
+  className="all-exchanges dashboard-section"
+>
+  <h2>
+    All Exchanges
+  </h2>
+  <ul>
+    <li>
+      <a
+        aria-current={null}
+        href="/exchange/1"
+        onClick={[Function]}
+      >
+        The Roots
+      </a>
+      <p
+        className="date-created"
+      >
+        2/18/2021
+      </p>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/exchange/2"
+        onClick={[Function]}
+      >
+        Kiwi/Aussie Rock
+      </a>
+      <p
+        className="date-created"
+      >
+        2/18/2021
+      </p>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/exchange/3"
+        onClick={[Function]}
+      >
+        Bark bark woof
+      </a>
+      <p
+        className="date-created"
+      >
+        2/18/2021
+      </p>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/exchange/4"
+        onClick={[Function]}
+      >
+        My influences
+      </a>
+      <p
+        className="date-created"
+      >
+        2/18/2021
+      </p>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/exchange/5"
+        onClick={[Function]}
+      >
+        Wedding songs
+      </a>
+      <p
+        className="date-created"
+      >
+        2/18/2021
+      </p>
+    </li>
+  </ul>
+</section>
+`;

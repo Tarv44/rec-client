@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Login ----- renders the UI as expected 1`] = `
+<main
+  className="signup-login"
+>
+  <form
+    autoComplete="off"
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <h2>
+      Login
+    </h2>
+    <div
+      className="form-group"
+    >
+      <label
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <input
+        id="password"
+        name="password"
+        onChange={[Function]}
+        type="password"
+      />
+    </div>
+    <button
+      type="submit"
+    >
+      Login
+    </button>
+    <p>
+      Don't have an account?
+    </p>
+    <a
+      aria-current={null}
+      className="login-here"
+      href="/signup"
+      onClick={[Function]}
+    >
+      Signup here.
+    </a>
+  </form>
+</main>
+`;

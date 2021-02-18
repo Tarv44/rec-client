@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Footer ----- renders the UI as expected 1`] = `
+<footer>
+  <p>
+    © Jonah Tarver
+  </p>
+</footer>
+`;

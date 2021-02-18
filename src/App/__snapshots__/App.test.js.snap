@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- App ----- renders the UI as expected 1`] = `
+<div
+  className="App"
+>
+  <nav>
+    <a
+      aria-current="page"
+      className="nav-logo active"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      Rotation
+    </a>
+    <div
+      className="nav-links"
+    >
+      <a
+        aria-current={null}
+        href="/signup"
+        onClick={[Function]}
+      >
+        Signup
+      </a>
+      <a
+        aria-current={null}
+        href="/login"
+        onClick={[Function]}
+      >
+        Login
+      </a>
+    </div>
+  </nav>
+  <main
+    className="landing"
+  >
+    <header
+      className="landing-header"
+    >
+      <h1
+        className="landing-title"
+      >
+        Rotatio
+        <span
+          id="last-letter"
+        >
+          n
+        </span>
+      </h1>
+    </header>
+    <section
+      className="welcome-section"
+    >
+      <h2>
+        Welcome!
+      </h2>
+      <p>
+        Whether you're a musician, a record head, or just an excited fan, it's a pleasure to share the music you care about with those around you. These days, "those around you" is likely just your roommate or dog.
+      </p>
+      <p>
+        Rotation was created as a tool for deeper music conversation between acquaintances far and wide, that goes beyond texting a basic link to a streaming platform. It allows you to create your own chat room for the music you're listening to that you can share with your friends.
+      </p>
+    </section>
+    <section
+      className="get-started"
+    >
+      <h2>
+        Get Started
+      </h2>
+      <p>
+        Create an account (or login) and make a new exchange to get started. Once you've made an exchange, share the url for your new exchange with a friend to get them in on the convo.
+      </p>
+      <div
+        className="account-buttons"
+      >
+        <a
+          aria-current={null}
+          className="signup-button"
+          href="/signup"
+          onClick={[Function]}
+        >
+          <button>
+            Signup
+          </button>
+        </a>
+        <a
+          aria-current={null}
+          href="/login"
+          onClick={[Function]}
+        >
+          <button>
+            Login
+          </button>
+        </a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>
+      © Jonah Tarver
+    </p>
+  </footer>
+</div>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- AddComment ----- renders the UI as expected 1`] = `
+<form
+  autoComplete="off"
+  className="song-form"
+  onSubmit={[Function]}
+>
+  <input
+    className="comment-input"
+    maxLength="1500"
+    name="comment"
+    onChange={[Function]}
+    type="text"
+    value="comment"
+  />
+  <button
+    className="comment-button"
+    type="submit"
+  >
+    Comment
+  </button>
+</form>
+`;

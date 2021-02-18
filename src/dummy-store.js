@@ -60,6 +60,7 @@ const STORE = {
         {
             id: 1,
             exchange_id: 1,
+            added_by: 1,
             title: 'Do you want more?!?!',
             artist: 'The Roots',
             album: 'Do you want more?!?!'

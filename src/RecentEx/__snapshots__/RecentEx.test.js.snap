@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- RecentEx ----- renders the UI as expected 1`] = `
+<section
+  className="dashboard-section recent"
+>
+  <h2>
+    Recently Updated
+  </h2>
+  <ul>
+    <li>
+      <a
+        aria-current={null}
+        href="/exchange/1"
+        onClick={[Function]}
+      >
+        The Roots
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/exchange/2"
+        onClick={[Function]}
+      >
+        Kiwi/Aussie Rock
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={null}
+        href="/exchange/3"
+        onClick={[Function]}
+      >
+        Bark bark woof
+      </a>
+    </li>
+  </ul>
+</section>
+`;

@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Dashboard ----- renders the UI as expected 1`] = `
+<main
+  className="dashboard"
+>
+  <header
+    className="dashboard-header"
+  >
+    <h1
+      className="dashboard-title"
+    >
+      user
+    </h1>
+    <a
+      aria-current={null}
+      href="/add-exchange"
+      onClick={[Function]}
+    >
+      <button>
+        Create New Exchange
+      </button>
+    </a>
+  </header>
+  <section
+    className="dashboard-section recent"
+  >
+    <h2>
+      Recently Updated
+    </h2>
+    <ul>
+      <li>
+        <a
+          aria-current={null}
+          href="/exchange/1"
+          onClick={[Function]}
+        >
+          The Roots
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/exchange/2"
+          onClick={[Function]}
+        >
+          Kiwi/Aussie Rock
+        </a>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/exchange/3"
+          onClick={[Function]}
+        >
+          Bark bark woof
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section
+    className="all-exchanges dashboard-section"
+  >
+    <h2>
+      All Exchanges
+    </h2>
+    <ul>
+      <li>
+        <a
+          aria-current={null}
+          href="/exchange/1"
+          onClick={[Function]}
+        >
+          The Roots
+        </a>
+        <p
+          className="date-created"
+        >
+          2/18/2021
+        </p>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/exchange/2"
+          onClick={[Function]}
+        >
+          Kiwi/Aussie Rock
+        </a>
+        <p
+          className="date-created"
+        >
+          2/18/2021
+        </p>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/exchange/3"
+          onClick={[Function]}
+        >
+          Bark bark woof
+        </a>
+        <p
+          className="date-created"
+        >
+          2/18/2021
+        </p>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/exchange/4"
+          onClick={[Function]}
+        >
+          My influences
+        </a>
+        <p
+          className="date-created"
+        >
+          2/18/2021
+        </p>
+      </li>
+      <li>
+        <a
+          aria-current={null}
+          href="/exchange/5"
+          onClick={[Function]}
+        >
+          Wedding songs
+        </a>
+        <p
+          className="date-created"
+        >
+          2/18/2021
+        </p>
+      </li>
+    </ul>
+  </section>
+</main>
+`;

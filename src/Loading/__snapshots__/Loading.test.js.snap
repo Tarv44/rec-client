@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`----- Loading ----- renders the UI as expected 1`] = `
+<main
+  id="loading-screen"
+>
+  <img
+    alt="Rotation logo"
+    id="loading-logo"
+    src="logo.png"
+  />
+  <h3
+    id="loading-message"
+  >
+    Queing the tracks
+    ...
+  </h3>
+</main>
+`;
