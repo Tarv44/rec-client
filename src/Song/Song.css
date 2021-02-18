@@ -53,10 +53,6 @@
     display: block;
 }
 
-.song-comments * {
-    margin: .2em 0;
-}
-
 .username {
     /* text-decoration: #0CF0AB underline; */
     font-weight: bold;
