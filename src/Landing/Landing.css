@@ -54,6 +54,7 @@
     align-items: flex-start;
     justify-content: center;
     color: white;
+    padding: 0 5%;
 }
 
 .get-started h2 {
@@ -74,6 +75,9 @@
 @media (min-width: 768px) {
     .landing-header {
         min-height: 35vh;
+    }
+    .get-started {
+        padding: 0 8%;
     }
 }
 
