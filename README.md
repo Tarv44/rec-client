@@ -10,7 +10,6 @@ This is my first fullstack project that I've built. It allows users to have a co
 ### Technology used:
 * React
 * CSS
-* Node
 
 ***
 
