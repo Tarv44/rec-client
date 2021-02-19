@@ -13,7 +13,9 @@ This is my first fullstack project that I've built. It allows users to have a co
 
 ***
 
-![Landing Page](./screenshots/landing.png) ![Exchange Page](./screenshots/exchange.png)
+![Landing Page](./screenshots/landing.png) 
+
+![Exchange Page](./screenshots/exchange.png)
 
 ![New Exchange Page](./screenshots/new-exchange.png)
 
